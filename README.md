@@ -1,7 +1,15 @@
 Slant library for Entity Framework
 ==============
 
+[![Join the chat at https://gitter.im/slantdotnet/Slant.Entity](https://badges.gitter.im/slantdotnet/Slant.Entity.svg)](https://gitter.im/slantdotnet/Slant.Entity?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![NuGet version (Slant.Entity)](https://img.shields.io/nuget/v/Slant.Entity.svg?style=flat)](https://www.nuget.org/packages/Slant.Entity/)
+[![Build Status](https://travis-ci.org/slantdotnet/Slant.Entity.svg?branch=master)](https://travis-ci.org/slantdotnet/Slant.Entity)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/slantdotnet/Slant.Entity/master/license.txt)
+
 ## Overview
+
+## About Slant.Entity with DbContextScope
+
 
 There are two namespaces which contain ready-to-use classes.
 
