@@ -8,7 +8,7 @@
         <owners>Jonny Novikov</owners>
         <licenseUrl>https://raw.githubusercontent.com/slantdotnet/Slant.Entity/master/license.txt</licenseUrl>
         <projectUrl>https://github.com/slantdotnet/Slant.Entity</projectUrl>
-        <iconUrl>https://avatars3.githubusercontent.com/u/18371159?v=3&s=200</iconUrl>
+        <iconUrl>https://raw.githubusercontent.com/slantdotnet/Slant.Entity/master/src/logo.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Library provides simple and flexible way to manage your Entity Framework DbContext instances and query execution.</description>
         <summary>Better way to manage Entity Framework contexts and queries.</summary>
@@ -23,13 +23,13 @@
         </dependencies>
     </metadata>
   <files>
-    <file src="bin\Release\Slant.Linq.dll" target="lib\net45\Slant.Linq.dll" />
-    <file src="bin\Release\Slant.Linq.dll.config" target="lib\net45\Slant.Linq.dll.config" />
-    <file src="bin\Release\Slant.Linq.dll.pdb" target="lib\net45\Slant.Linq.pdb" />
-    <file src="bin\Release\Slant.Linq.dll.XML" target="lib\net45\Slant.Linq.XML" />
-    <file src="bin\Release\Slant.Entity.dll" target="lib\net45\Slant.Entity.dll" />
-    <file src="bin\Release\Slant.Entity.dll.config" target="lib\net45\Slant.Entity.dll.config" />
-    <file src="bin\Release\Slant.Entity.dll.pdb" target="lib\net45\Slant.Entity.pdb" />
-    <file src="bin\Release\Slant.Entity.dll.XML" target="lib\net45\Slant.Entity.XML" />
+    <file src="license.txt" />
+    <file src="bin\Release\Slant.Linq.dll" target="lib\Slant.Linq.dll" />
+    <file src="bin\Release\Slant.Linq.pdb" target="lib\Slant.Linq.pdb" />
+    <file src="bin\Release\Slant.Linq.XML" target="lib\Slant.Linq.XML" />
+    <file src="bin\Release\Slant.Entity.dll" target="lib\Slant.Entity.dll" />
+    <file src="bin\Release\Slant.Entity.dll.config" target="lib\Slant.Entity.dll.config" />
+    <file src="bin\Release\Slant.Entity.pdb" target="lib\Slant.Entity.pdb" />
+    <file src="bin\Release\Slant.Entity.XML" target="lib\Slant.Entity.XML" />
   </files>
 </package>
