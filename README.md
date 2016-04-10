@@ -8,9 +8,6 @@ Slant library for Entity Framework
 
 ## Overview
 
-## About Slant.Entity with DbContextScope
-
-
 There are two namespaces which contain ready-to-use classes.
 
 ####Slant.Linq 
