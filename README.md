@@ -1,7 +1,7 @@
 Slant library for Entity Framework
 ==============
 
-# About Slant.Entity with DbContextScope
+## About Slant.Entity with DbContextScope
 
 A simple and flexible way to manage your Entity Framework DbContext instances.
 
@@ -17,7 +17,7 @@ It doesn't force any particular design pattern or application architecture to be
 
 And most importantly, at the time of writing, `DbContextScope` has been battle-tested in a large-scale application for over two months and has performed without a hitch. 
 
-# Using DbContextScope
+## Using DbContextScope
 
 The repo contains a demo application that demonstrates the most common (and a few more advanced) use-cases.
 

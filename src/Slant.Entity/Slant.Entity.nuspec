@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+<metadata>
+        <id>Slant.Entity</id>
+        <version>1.0.0</version>
+        <title>Slant.Entity</title>
+        <authors>Slant Development Team</authors>
+        <owners>Jonny Novikov</owners>
+        <licenseUrl>https://raw.githubusercontent.com/slantdotnet/Slant.Entity/master/license.txt</licenseUrl>
+        <projectUrl>https://github.com/slantdotnet/Slant.Entity</projectUrl>
+        <iconUrl>https://avatars3.githubusercontent.com/u/18371159?v=3&s=200</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Library provides simple and flexible way to manage your Entity Framework DbContext instances and query execution.</description>
+        <summary>Better way to manage Entity Framework contexts and queries.</summary>
+        <releaseNotes>See github page for details</releaseNotes>
+        <copyright>Copyright (c) Slant Development Team</copyright>
+        <language>en-US</language>
+        <tags>Entity EntityFramework LINQ EF fluent expressions</tags>
+        <dependencies>
+            <group targetFramework=".NETFramework4.5">
+                <dependency id="EntityFramework" version="6.1.3" />
+            </group>
+        </dependencies>
+    </metadata>
+  <files>
+    <file src="bin\Release\Slant.Linq.dll" target="lib\net45\Slant.Linq.dll" />
+    <file src="bin\Release\Slant.Linq.dll.config" target="lib\net45\Slant.Linq.dll.config" />
+    <file src="bin\Release\Slant.Linq.dll.pdb" target="lib\net45\Slant.Linq.pdb" />
+    <file src="bin\Release\Slant.Linq.dll.XML" target="lib\net45\Slant.Linq.XML" />
+    <file src="bin\Release\Slant.Entity.dll" target="lib\net45\Slant.Entity.dll" />
+    <file src="bin\Release\Slant.Entity.dll.config" target="lib\net45\Slant.Entity.dll.config" />
+    <file src="bin\Release\Slant.Entity.dll.pdb" target="lib\net45\Slant.Entity.pdb" />
+    <file src="bin\Release\Slant.Entity.dll.XML" target="lib\net45\Slant.Entity.XML" />
+  </files>
+</package>
