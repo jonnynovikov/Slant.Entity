@@ -1,6 +1,8 @@
 Slant library for Entity Framework
 ==============
 
+[![Join the chat at https://gitter.im/slantdotnet/Slant.Entity](https://badges.gitter.im/slantdotnet/Slant.Entity.svg)](https://gitter.im/slantdotnet/Slant.Entity?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## About Slant.Entity with DbContextScope
 
 A simple and flexible way to manage your Entity Framework DbContext instances.
