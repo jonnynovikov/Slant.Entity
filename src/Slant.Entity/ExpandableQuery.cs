@@ -34,7 +34,9 @@ namespace Slant.Linq
 
         IQueryProvider IQueryable.Provider => _provider;
 
-        /// <summary> IQueryable enumeration </summary>
+        /// <summary> 
+        /// IQueryable enumeration 
+        /// </summary>
         public IEnumerator<T> GetEnumerator() { return InnerQuery.GetEnumerator(); }
 
         IEnumerator IEnumerable.GetEnumerator() { return InnerQuery.GetEnumerator(); }
