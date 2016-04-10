@@ -1,10 +1,20 @@
-﻿using System;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Threading.Tasks;
 using FluentAssertions;
+using NSpectator;
 using NUnit.Framework;
 using Slant.Linq;
 
@@ -13,21 +23,85 @@ namespace Slant.Entity.Tests
     [TestFixture]
     public class DbAsyncTest : DebuggerShim
     {
-        private readonly TestContext db = new TestContext();
+        static TestContext db;
+        
+        public static string RootPath => DirectoryOf(Assembly.GetExecutingAssembly());
 
-        public DbAsyncTest()
+        private static string DirectoryOf(Assembly assembly)
         {
-            db.Entities.RemoveRange(db.Entities.ToList());
-            db.Entities.AddRange(new[]
-            {
-                new Entity { Value = 123.45m },
-                new Entity { Value = 67.89m },
-                new Entity { Value = 3.14m }
-            });
-            db.SaveChanges();
+            string filePath = new Uri(assembly.CodeBase).LocalPath;
+            return Path.GetDirectoryName(filePath);
         }
 
-        public async Task EnumerateShouldWorkAsync()
+        [Test]
+        public void Spectate() => DebugNestedTypes();
+
+        class Describe_Entities : Spec
+        {
+            void before_all()
+            {
+                var path = RootPath.Replace(@"\bin\Debug", "").Replace(@"\bin\Release", "");
+                AppDomain.CurrentDomain.SetData("DataDirectory", path);
+
+                db = new TestContext();
+
+                db.Entities.AddRange(new[]
+                {
+                    new Entity { Value = 123.45m },
+                    new Entity { Value = 67.89m },
+                    new Entity { Value = 3.14m }
+                });
+                db.SaveChanges();
+            }
+
+            void Should_be_initialized_database()
+            {
+                it["should be 3 entities in db"] = () =>
+                {
+                    db.Entities.Count().Should().Be(3);
+                };
+            }
+
+            void Describe_enumerate_work_async()
+            {
+                itAsync["should retrieve entities as expandable"] = async () =>
+                {
+                    var task = db.Entities.AsExpandable().ToListAsync();
+                    var status = task.Status;
+                    var result = await task;
+                    var newStatus = task.Status;
+
+                    newStatus.Should().Be(TaskStatus.RanToCompletion);
+                    result.Should().HaveCount(3);
+                    status.Should().NotBe(TaskStatus.RanToCompletion);
+                };
+            }
+
+            void Describe_execute_async_work()
+            {
+                itAsync["should work async execution"] = ExecuteShouldWorkAsync;
+            }
+
+            void Describe_expression_invoke_async()
+            {
+                itAsync["should work expression invoke with async"] = ExecuteShouldWorkAsync;
+            }
+
+            void Describe_non_fail_database_clear()
+            {
+                it["removing all"] = () =>
+                {
+                    var entities = db.Entities.ToList();
+                    foreach (var entity in entities)
+                    {
+                        db.Entities.Remove(entity);
+                    }
+                    db.SaveChanges();
+                };
+            }
+        }
+
+        public static async Task EnumerateShouldWorkAsync()
         {
             var task = db.Entities.AsExpandable().ToListAsync();
             var before = task.Status;
@@ -39,7 +113,7 @@ namespace Slant.Entity.Tests
             before.Should().NotBe(TaskStatus.RanToCompletion);
         }
 
-        public async Task ExecuteShouldWorkAsync()
+        public static async Task ExecuteShouldWorkAsync()
         {
             var task = db.Entities.AsExpandable().SumAsync(e => e.Value);
             var before = task.Status;
@@ -51,7 +125,7 @@ namespace Slant.Entity.Tests
             before.Should().NotBe(TaskStatus.RanToCompletion);
         }
 
-        public async Task ExpressionInvokeTest()
+        public static async Task ExpressionInvokeAsync()
         {
             var eParam = Expression.Parameter(typeof(Entity), "e");
             var eProp = Expression.PropertyOrField(eParam, "Value");
@@ -74,6 +148,12 @@ namespace Slant.Entity.Tests
         
         public class TestContext : DbContext
         {
+            public TestContext()
+                : base("DefaultConnection")
+            {
+                Database.SetInitializer(new DropCreateDatabaseAlways<TestContext>());
+            }
+
             public DbSet<Entity> Entities { get; set; }
         }
 

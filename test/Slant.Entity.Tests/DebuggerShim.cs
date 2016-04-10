@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
 using FluentAssertions;
@@ -15,12 +16,9 @@ using NSpectator;
 /// </summary>
 public partial class DebuggerShim
 {
-    public void Debug(string tagOrClassName)
+    protected void DebugNestedTypes()
     {
-        var types = GetType().Assembly.GetTypes();
-        // OR
-        // var types = new Type[]{typeof(Some_Type_Containg_some_Specs)};
-        Debug(new SpecFinder(types, ""));
+        Debug(GetType().GetNestedTypes(BindingFlags.NonPublic | BindingFlags.Public));
     }
 
     public static void Debug(System.Type t)
