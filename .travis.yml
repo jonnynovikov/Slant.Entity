@@ -1,0 +1,6 @@
+language: csharp
+solution: Slant.Entity.sln
+install:
+  - nuget restore Slant.Entity.sln
+script:
+  - xbuild /p:Configuration=Debug Slant.Entity.sln
