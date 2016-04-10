@@ -8,7 +8,9 @@ namespace Slant.Linq
 {
     public static class ExpandableExtensions
     {
-        /// <summary> LinqKit: Returns wrapper that automatically expands expressions </summary>
+        /// <summary> 
+        /// Returns wrapper that automatically expands expressions 
+        /// </summary>
         public static IQueryable<T> AsExpandable<T>(this IQueryable<T> query)
         {
             if (query is ExpandableQuery<T>) return query;
