@@ -154,6 +154,23 @@ namespace Slant.Linq.Tests
                 expandAgain.Should().Be(nestedExpression.Expand().ToString());
             }
 
+            void Describe_anonymous_type_local_delegate()
+            {
+                // Expression<Func<int, int, ?>>
+                var expr1 = Linq.Expr((int a, int b) => new {a, b});
+                var expr2 = Linq.Expr((int c) => expr1.Invoke(c, 0));
+                var expr3 = Let<int>.Getter(a => expr2.Invoke(a).a);
+
+                context[$"{expr2.Expand()}"] = () =>
+                {
+                    it[$"expr(4).getter(a) should be 4"] = () =>
+                    {
+                        expr3.Expand().Invoke(4).Should().Be(4);
+                    };
+                };
+               
+            }
+
             void Specify_linq_builder()
             {
                 int value = 0;
