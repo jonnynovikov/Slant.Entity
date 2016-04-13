@@ -67,9 +67,13 @@ Check out wiki of the [Slant.Entity](https://github.com/slantdotnet/Slant.Entity
 
 [Using LINQ Extensions](https://github.com/slantdotnet/Slant.Entity/wiki/Using-LINQ-Extensions)
 
+[Using DbContextScope](https://github.com/slantdotnet/Slant.Entity/wiki/Using-DbContextScope)
+
 ## Contributing
 
 Check out [this wiki page](https://github.com/slantdotnet/Slant.Entity/wiki/Contributing) for complete guide.
+
+And waiting for you in the [contributors](https://github.com/slantdotnet/Slant.Entity/graphs/contributors) section ;)
 
 ## Thanks to
 
