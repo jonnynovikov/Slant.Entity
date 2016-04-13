@@ -54,6 +54,10 @@
       <HintPath>..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Slant.Linq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d632f95b00548959, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Slant.Linq.1.0.0\lib\Slant.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -76,10 +80,6 @@
     <ProjectReference Include="..\..\src\Slant.Entity\Slant.Entity.csproj">
       <Project>{c4851dda-ad9d-4658-bb31-8f485a025bb9}</Project>
       <Name>Slant.Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\Slant.Linq\Slant.Linq.csproj">
-      <Project>{d8257065-c84a-43d2-acac-03370a3237a6}</Project>
-      <Name>Slant.Linq</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

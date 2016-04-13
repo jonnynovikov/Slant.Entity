@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Slant.Data.Entity")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Slant.Entity")]
+[assembly: AssemblyDescription("DbContextScope and Expression expanding")]
 [assembly: AssemblyConfiguration("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

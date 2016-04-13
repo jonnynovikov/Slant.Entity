@@ -8,18 +8,22 @@ Slant library for Entity Framework
 
 ## Overview
 
-There are two namespaces which contain ready-to-use classes.
+Library extends an [Slant.Linq](https://github.com/slantdotnet/Slant.Linq) for simplify build LINQ expressions with EF query provider.
+
+It contains powerful implementation of `DbContextScope` - source of the forked project with the same name as class.
 
 ####Slant.Linq 
 
-It is a free set of extensions for LINQ and Entity Framework power users. It comprises the following:
+Slant.Entity use extensions for LINQ and Entity Framework power users. 
+
+It comprises the following:
 
 * An extensible implementation of AsExpandable()
 * A public expression visitor base class (ExpressionVisitor)
 * PredicateBuilder
 * Linq.Expr and Linq.Func shortcut methods
 
-With Slant.Linq, you can:
+With Slant.Linq and Slant.Entity, you can:
 
 * Plug expressions into EntitySets and EntityCollections
 * Use expression variables in subqueries
@@ -49,21 +53,19 @@ And most importantly, at the time of writing, `DbContextScope` has been battle-t
 
 ## Installation
 
-We recommended installing [the NuGet package](https://www.nuget.org/packages/NSpectator). Install on the command line from your solution directory or use the Package Manager console in Visual Studio:
+We recommended installing [the NuGet package](https://www.nuget.org/packages/Slant.Entity). Install on the command line from your solution directory or use the Package Manager console in Visual Studio:
 
 ```powershell
 
-PM> Install-Package NSpectator
+PM> Install-Package Slant.Entity
 
 ```
 
 ## Usage
 
-Check out our wiki to see typical and non-trivial usages and detailed examples:
+Check out wiki of the [Slant.Entity](https://github.com/slantdotnet/Slant.Entity) to see typical and non-trivial usages and detailed examples:
 
 [Using LINQ Extensions](https://github.com/slantdotnet/Slant.Entity/wiki/Using-LINQ-Extensions)
-
-[Using DbContextScope](https://github.com/slantdotnet/Slant.Entity/wiki/Using-DbContextScope)
 
 ## Contributing
 

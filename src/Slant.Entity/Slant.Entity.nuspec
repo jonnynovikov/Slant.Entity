@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
 <metadata>
         <id>Slant.Entity</id>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
         <title>Slant.Entity</title>
         <authors>Slant Development Team</authors>
         <owners>Jonny Novikov</owners>
@@ -19,14 +19,12 @@
         <dependencies>
             <group targetFramework=".NETFramework4.5">
                 <dependency id="EntityFramework" version="6.1.3" />
+                <dependency id="Slant.Linq" version="1.0.0" />
             </group>
         </dependencies>
     </metadata>
   <files>
     <file src="license.txt" />
-    <file src="bin\Release\Slant.Linq.dll" target="lib\Slant.Linq.dll" />
-    <file src="bin\Release\Slant.Linq.pdb" target="lib\Slant.Linq.pdb" />
-    <file src="bin\Release\Slant.Linq.XML" target="lib\Slant.Linq.XML" />
     <file src="bin\Release\Slant.Entity.dll" target="lib\Slant.Entity.dll" />
     <file src="bin\Release\Slant.Entity.dll.config" target="lib\Slant.Entity.dll.config" />
     <file src="bin\Release\Slant.Entity.pdb" target="lib\Slant.Entity.pdb" />
