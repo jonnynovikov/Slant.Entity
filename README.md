@@ -63,7 +63,9 @@ PM> Install-Package Slant.Entity
 
 ## Usage
 
-Check out wiki of the [Slant.Entity](https://github.com/slantdotnet/Slant.Entity) to see typical and non-trivial usages and detailed examples:
+I would highly recommend reading the following blog post by original [DbContextScope](https://github.com/mehdime/DbContextScope) author [Mehdi El Gueddari](https://github.com/mehdime) first. It examines in great details the most commonly used approaches to manage DbContext instances and explains how `DbContextScope` addresses their shortcomings and simplifies DbContext management: [Managing DbContext the right way with Entity Framework 6: an in-depth guide](http://mehdi.me/ambient-dbcontext-in-ef6/). 
+
+For more information check out wiki of the [Slant.Entity](https://github.com/slantdotnet/Slant.Entity) to see typical and non-trivial usages and detailed examples:
 
 [Using LINQ Extensions](https://github.com/slantdotnet/Slant.Entity/wiki/Using-LINQ-Extensions)
 
