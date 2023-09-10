@@ -1,15 +1,40 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31606.5
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{29B584F6-076B-4BAB-99B0-A7A28FB82B34}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{992386FA-C20A-4CB2-B017-6351206426AE}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		global.json = global.json
+		README.md = README.md
+		stylecop.json = stylecop.json
+	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B16104F5-F49C-425C-B3AE-BC8D5EC8A3C7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{941C7E09-C8B7-4C3A-8924-CAD4A216905B}"
+	ProjectSection(SolutionItems) = preProject
+		.github\dependabot.yml = .github\dependabot.yml
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slant.Entity", "src\Slant.Entity\Slant.Entity.csproj", "{C4851DDA-AD9D-4658-BB31-8F485A025BB9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{1C927E85-66C0-458F-9DDA-367E8B4AF8C4}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\codeql-analysis.yml = .github\workflows\codeql-analysis.yml
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slant.Entity.Tests", "test\Slant.Entity.Tests\Slant.Entity.Tests.csproj", "{5FB4AB9D-CB4A-4B60-A697-D2C0073C1F94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slant.Entity", "Slant.Entity\Slant.Entity.csproj", "{8D22C9A0-0353-4F9C-B6D7-196A5AF9F2D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slant.Entity.Tests", "Slant.Entity.Tests\Slant.Entity.Tests.csproj", "{7BAFABC7-4AEB-4D7C-A73F-74E98655535F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slant.Entity.Demo", "Slant.Entity.Demo\Slant.Entity.Demo.csproj", "{94E4E44B-8BAF-4120-B46D-0F21F1303EAC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A0DD4638-2B92-4DED-82E3-A725917A3905}"
+	ProjectSection(SolutionItems) = preProject
+		docs\DbContextScope.md = docs\DbContextScope.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,20 +42,28 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C4851DDA-AD9D-4658-BB31-8F485A025BB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4851DDA-AD9D-4658-BB31-8F485A025BB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4851DDA-AD9D-4658-BB31-8F485A025BB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4851DDA-AD9D-4658-BB31-8F485A025BB9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5FB4AB9D-CB4A-4B60-A697-D2C0073C1F94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5FB4AB9D-CB4A-4B60-A697-D2C0073C1F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5FB4AB9D-CB4A-4B60-A697-D2C0073C1F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5FB4AB9D-CB4A-4B60-A697-D2C0073C1F94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D22C9A0-0353-4F9C-B6D7-196A5AF9F2D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D22C9A0-0353-4F9C-B6D7-196A5AF9F2D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D22C9A0-0353-4F9C-B6D7-196A5AF9F2D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D22C9A0-0353-4F9C-B6D7-196A5AF9F2D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BAFABC7-4AEB-4D7C-A73F-74E98655535F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BAFABC7-4AEB-4D7C-A73F-74E98655535F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BAFABC7-4AEB-4D7C-A73F-74E98655535F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BAFABC7-4AEB-4D7C-A73F-74E98655535F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94E4E44B-8BAF-4120-B46D-0F21F1303EAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94E4E44B-8BAF-4120-B46D-0F21F1303EAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94E4E44B-8BAF-4120-B46D-0F21F1303EAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94E4E44B-8BAF-4120-B46D-0F21F1303EAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C4851DDA-AD9D-4658-BB31-8F485A025BB9} = {B16104F5-F49C-425C-B3AE-BC8D5EC8A3C7}
-		{5FB4AB9D-CB4A-4B60-A697-D2C0073C1F94} = {29B584F6-076B-4BAB-99B0-A7A28FB82B34}
+		{941C7E09-C8B7-4C3A-8924-CAD4A216905B} = {992386FA-C20A-4CB2-B017-6351206426AE}
+		{1C927E85-66C0-458F-9DDA-367E8B4AF8C4} = {941C7E09-C8B7-4C3A-8924-CAD4A216905B}
+		{A0DD4638-2B92-4DED-82E3-A725917A3905} = {992386FA-C20A-4CB2-B017-6351206426AE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C61F29E-ADC6-4377-8AC2-E34D1E7791C4}
 	EndGlobalSection
 EndGlobal
