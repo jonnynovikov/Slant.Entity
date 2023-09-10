@@ -6,7 +6,7 @@ Library for managing DbContext the right way with [Entity Framework Core](https:
 [![NuGet version (Slant.Entity)](https://img.shields.io/nuget/v/Slant.Entity.svg?style=flat-square)](https://www.nuget.org/packages/Slant.Entity/)
 [![NuGet](https://img.shields.io/nuget/dt/Slant.Entity.svg)](https://www.nuget.org/packages/Slant.Entity)
 ![Build Status](https://github.com/jonnynovikov/Slant.Entity/actions/workflows/dotnet.yml/badge.svg)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/jonnynovikov/Slant.Entity/master/LICENSE.txt)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
 
 ## Overview
 
