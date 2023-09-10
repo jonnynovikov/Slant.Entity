@@ -1,0 +1,129 @@
+# Rules in this file were initially inferred by Visual Studio IntelliCode based on best match to current usage
+# You can modify the rules from these initially generated values to suit your own policies
+# You can learn more about editorconfig here: https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference
+[*.cs]
+
+#Core editorconfig formatting - indentation
+
+#use soft tabs (spaces) for indentation
+indent_style = space
+
+#Formatting - new line options
+
+#require members of anonymous types to be on separate lines
+csharp_new_line_before_members_in_anonymous_types = true
+#require members of object initializers to be on the same line
+csharp_new_line_before_members_in_object_initializers = false
+#require braces to be on a new line for methods, types, and lambdas (also known as "Allman" style)
+csharp_new_line_before_open_brace =all
+
+#Formatting - organize using options
+
+#do not place System.* using directives before other using directives
+dotnet_sort_system_directives_first = false
+
+#Formatting - spacing options
+
+#require a space after a keyword in a control flow statement such as a for loop
+csharp_space_after_keywords_in_control_flow_statements = true
+#remove space within empty argument list parentheses
+csharp_space_between_method_call_empty_parameter_list_parentheses = false
+#remove space between method call name and opening parenthesis
+csharp_space_between_method_call_name_and_opening_parenthesis = false
+#do not place space characters after the opening parenthesis and before the closing parenthesis of a method call
+csharp_space_between_method_call_parameter_list_parentheses = false
+#place a space character after the opening parenthesis and before the closing parenthesis of a method declaration parameter list.
+csharp_space_between_method_declaration_parameter_list_parentheses = false
+
+#Formatting - wrapping options
+
+#leave code block on single line
+csharp_preserve_single_line_blocks = true
+
+#Style - expression bodied member options
+
+#prefer block bodies for constructors
+csharp_style_expression_bodied_constructors = false:suggestion
+#prefer block bodies for methods
+csharp_style_expression_bodied_methods = false:suggestion
+
+#Style - expression level options
+
+#prefer the language keyword for member access expressions, instead of the type name, for types that have a keyword to represent them
+dotnet_style_predefined_type_for_member_access = true:suggestion
+
+#Style - Expression-level  preferences
+
+#prefer default over default(T)
+csharp_prefer_simple_default_expression = true:suggestion
+#prefer objects to be initialized using object initializers when possible
+dotnet_style_object_initializer = true:suggestion
+#prefer inferred anonymous type member names
+dotnet_style_prefer_inferred_anonymous_type_member_names = false:suggestion
+
+#Style - language keyword and framework type options
+
+#prefer the language keyword for local variables, method parameters, and class members, instead of the type name, for types that have a keyword to represent them
+dotnet_style_predefined_type_for_locals_parameters_members = true:suggestion
+
+#Style - modifier options
+
+#prefer accessibility modifiers to be declared except for public interface members. This will currently not differ from always and will act as future proofing for if C# adds default interface methods.
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:suggestion
+
+#Style - Modifier preferences
+
+#when this rule is set to a list of modifiers, prefer the specified ordering.
+csharp_preferred_modifier_order = public,private,protected,static,override,readonly:suggestion
+
+#Style - qualification options
+
+#prefer fields not to be prefaced with this. or Me. in Visual Basic
+dotnet_style_qualification_for_field = false:suggestion
+#prefer properties not to be prefaced with this. or Me. in Visual Basic
+dotnet_style_qualification_for_property = false:suggestion
+
+# S1135: Track uses of "TODO" tags
+dotnet_diagnostic.S1135.severity = suggestion
+
+# CS1591: Missing XML comment for publicly visible type or member 'Type_or_Member'
+dotnet_diagnostic.CS1591.severity = none
+
+# SA1025: Code should not contain multiple whitespace in a row
+dotnet_diagnostic.SA1025.severity = none
+
+# SA1101: Prefix local calls with this
+dotnet_diagnostic.SA1101.severity = none
+
+# SA1300: Element should begin with upper-case letter
+dotnet_diagnostic.SA1300.severity = none
+
+# SA1309: Field names should not begin with underscore
+dotnet_diagnostic.SA1309.severity = none
+
+# SA1413: Use trailing comma in multi-line initializers
+dotnet_diagnostic.SA1413.severity = none
+
+# SA1512: Single line comments must not be followed by blank line
+dotnet_diagnostic.SA1512.severity = none
+
+# SA1516: Elements should be separated by blank line
+dotnet_diagnostic.SA1516.severity = none
+
+# SA1600: Elements should be documented
+dotnet_diagnostic.SA1600.severity = none
+
+# SA1629: Documentation text should end with a period
+dotnet_diagnostic.SA1629.severity = none
+
+# SA1623: Property summary documentation should match accessors
+dotnet_diagnostic.SA1623.severity = none
+
+# SA1633: File should have header
+dotnet_diagnostic.SA1633.severity = none
+
+# IDE0063: Use simple 'using' statement
+dotnet_diagnostic.IDE0063.severity = none
+
+# SA1009: Closing parenthesis should be spaced correctly
+dotnet_diagnostic.SA1009.severity = none
