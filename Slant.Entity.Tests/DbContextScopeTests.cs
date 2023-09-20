@@ -1,4 +1,3 @@
-using Slant.Entity;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Slant.Entity.Tests.Helpers;
@@ -263,11 +262,12 @@ public sealed class DbContextScopeTests : IDisposable
         // Arrange - add two users to the database
         using (var dbContext = _dbContextFactory.CreateDbContext<TestDbContext>())
         {
-            dbContext.Users.AddRange(new User[]
+            var originalUsers = new User[]
             {
-                new User { Name = originalName1 },
-                new User { Name = originalName2 }
-            });
+                new() { Name = originalName1 },
+                new() { Name = originalName2 }
+            };
+            dbContext.Users.AddRange(originalUsers);
             dbContext.SaveChanges();
         }
 
@@ -294,7 +294,7 @@ public sealed class DbContextScopeTests : IDisposable
                 outerUsers[1].Name.Should().Be(originalName2);
 
                 // Act - only refresh first user in parent scope, but not the second
-                innerDbContextScope.RefreshEntitiesInParentScope(new User[] { innerUsers[0] });
+                innerDbContextScope.RefreshEntitiesInParentScope(new[] { innerUsers[0] });
 
                 // Assert
                 outerUsers[0].Name.Should().Be(newName1);
@@ -312,24 +312,20 @@ public sealed class DbContextScopeTests : IDisposable
 
         using (var dbContext = _dbContextFactory.CreateDbContext<TestDbContext>())
         {
-            dbContext.Users.AddRange(new User[]
+            dbContext.Users.AddRange(new()
             {
-                new()
+                Name = "Test User 1",
+                CoursesUsers = new CourseUser[]
                 {
-                    Name = "Test User 1",
-                    CoursesUsers = new CourseUser[]
-                    {
-                        new() { Course = course1, Grade = "A" },
-                        new() { Course = course2, Grade = "C" }
-                    }
-                },
-                new()
+                    new() { Course = course1, Grade = "A" },
+                    new() { Course = course2, Grade = "C" }
+                }
+            }, new()
+            {
+                Name = "Test User 2",
+                CoursesUsers = new CourseUser[]
                 {
-                    Name = "Test User 2",
-                    CoursesUsers = new CourseUser[]
-                    {
-                        new() { Course = course1, Grade = "F" }
-                    }
+                    new() { Course = course1, Grade = "F" }
                 }
             });
             dbContext.SaveChanges();

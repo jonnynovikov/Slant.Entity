@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
@@ -31,7 +31,7 @@ public class DbContextCollection : IDbContextCollection
     private bool _completed;
     private readonly bool _readOnly;
 
-    internal Dictionary<Type, DbContext> InitializedDbContexts { get { return _initializedDbContexts; } }
+    internal Dictionary<Type, DbContext> InitializedDbContexts => _initializedDbContexts;
 
     public DbContextCollection(bool readOnly = false, IsolationLevel? isolationLevel = null, IDbContextFactory? dbContextFactory = null)
     {
@@ -78,6 +78,12 @@ public class DbContextCollection : IDbContextCollection
         return (TDbContext)_initializedDbContexts[requestedType];
     }
 
+    /// <summary>
+    ///     Commits all changes made to the database in every initialized database context.
+    /// </summary>
+    /// <returns>
+    ///     The number of state entries written to the database.
+    /// </returns>
     public int Commit()
     {
         if (_disposed)
@@ -103,7 +109,7 @@ public class DbContextCollection : IDbContextCollection
 
         ExceptionDispatchInfo? lastError = null;
 
-        var c = 0;
+        var numEntries = 0;
 
         foreach (var dbContext in _initializedDbContexts.Values)
         {
@@ -111,7 +117,7 @@ public class DbContextCollection : IDbContextCollection
             {
                 if (!_readOnly)
                 {
-                    c += dbContext.SaveChanges();
+                    numEntries += dbContext.SaveChanges();
                 }
 
                 // If we've started an explicit database transaction, time to commit it now.
@@ -134,7 +140,7 @@ public class DbContextCollection : IDbContextCollection
         else
             _completed = true;
 
-        return c;
+        return numEntries;
     }
 
     public Task<int> CommitAsync()
@@ -152,7 +158,7 @@ public class DbContextCollection : IDbContextCollection
         // See comments in the sync version of this method for more details.
         ExceptionDispatchInfo? lastError = null;
 
-        var c = 0;
+        var numEntries = 0;
 
         foreach (var dbContext in _initializedDbContexts.Values)
         {
@@ -160,7 +166,7 @@ public class DbContextCollection : IDbContextCollection
             {
                 if (!_readOnly)
                 {
-                    c += await dbContext.SaveChangesAsync(cancelToken).ConfigureAwait(false);
+                    numEntries += await dbContext.SaveChangesAsync(cancelToken).ConfigureAwait(false);
                 }
 
                 // If we've started an explicit database transaction, time to commit it now.
@@ -183,7 +189,7 @@ public class DbContextCollection : IDbContextCollection
         else
             _completed = true;
 
-        return c;
+        return numEntries;
     }
 
     public void Rollback()
@@ -204,25 +210,23 @@ public class DbContextCollection : IDbContextCollection
 
             // But if we've started an explicit database transaction, then we must roll it back.
             var tran = GetValueOrDefault(_transactions, dbContext);
-            if (tran != null)
+            if (tran == null) continue;
+            try
             {
-                try
-                {
-                    tran.Rollback();
-                    tran.Dispose();
-                }
-                catch (Exception e)
-                {
-                    lastError = ExceptionDispatchInfo.Capture(e);
-                }
+                tran.Rollback();
+                tran.Dispose();
+            }
+            catch (Exception e)
+            {
+                lastError = ExceptionDispatchInfo.Capture(e);
             }
         }
 
         _transactions.Clear();
         _completed = true;
 
-        if (lastError != null)
-            lastError.Throw(); // Re-throw while maintaining the exception's original stack track
+        // Re-throw while maintaining the exception's original stack track
+        lastError?.Throw();
     }
 
     public void Dispose()

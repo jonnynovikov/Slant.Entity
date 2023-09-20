@@ -1,5 +1,4 @@
-﻿using Slant.Entity;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Slant.Entity.Tests.Helpers;
 using Slant.Entity.Tests.Models;
@@ -10,16 +9,9 @@ namespace Slant.Entity.Tests
 {
     public sealed class RegisteredDbContextFactoryTests : IDisposable
     {
-        private readonly SqliteMemoryDatabaseLifetimeManager _databaseManager;
-        private readonly RegisteredDbContextFactory _dbContextFactory;
-
-        public RegisteredDbContextFactoryTests()
-        {
-            // Create a SQLite in-memory database which will last the duration of the test
-            _databaseManager = new SqliteMemoryDatabaseLifetimeManager();
-
-            _dbContextFactory = new RegisteredDbContextFactory();
-        }
+        // Create a SQLite in-memory database which will last the duration of the test
+        private readonly SqliteMemoryDatabaseLifetimeManager _databaseManager = new();
+        private readonly RegisteredDbContextFactory _dbContextFactory = new();
 
         public void Dispose()
         {

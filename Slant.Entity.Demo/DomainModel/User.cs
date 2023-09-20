@@ -2,7 +2,9 @@
 
 namespace Slant.Entity.Demo.DomainModel;
 
-// Anemic model to keep this demo application simple.
+/// <summary>
+/// User Anemic Model to keep this demo application simple.
+/// </summary>
 public class User 
 {
     public Guid Id { get; set; }

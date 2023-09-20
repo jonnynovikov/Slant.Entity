@@ -67,15 +67,15 @@ public sealed class DbContextScope : IDbContextScope
 
         // Only save changes if we're not a nested scope. Otherwise, let the top-level scope
         // decide when the changes should be saved.
-        var c = 0;
+        var numEntries = 0;
         if (!_nested)
         {
-            c = CommitInternal();
+            numEntries = CommitInternal();
         }
 
         _completed = true;
 
-        return c;
+        return numEntries;
     }
 
     public Task<int> SaveChangesAsync()
@@ -92,14 +92,14 @@ public sealed class DbContextScope : IDbContextScope
 
         // Only save changes if we're not a nested scope. Otherwise, let the top-level scope
         // decide when the changes should be saved.
-        var c = 0;
+        var numEntries = 0;
         if (!_nested)
         {
-            c = await CommitInternalAsync(cancelToken).ConfigureAwait(false);
+            numEntries = await CommitInternalAsync(cancelToken).ConfigureAwait(false);
         }
 
         _completed = true;
-        return c;
+        return numEntries;
     }
 
     private int CommitInternal()

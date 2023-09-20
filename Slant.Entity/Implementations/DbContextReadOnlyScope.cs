@@ -4,7 +4,7 @@ namespace Slant.Entity;
 
 public class DbContextReadOnlyScope : IDbContextReadOnlyScope
 {
-    private DbContextScope _internalScope;
+    private readonly DbContextScope _internalScope;
 
     public IDbContextCollection DbContexts => _internalScope.DbContexts;
 
