@@ -25,7 +25,7 @@
     <None Include="..\README.md" Pack="true" PackagePath="\" />
     <None Include="..\icon.png" Pack="true" PackagePath="images\icon.png" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.12" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.12" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
   </ItemGroup>
 
