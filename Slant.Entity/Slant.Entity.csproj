@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <PackageId>Slant.Entity</PackageId>
-    <Version>7.0.12</Version>
+    <Version>8.0.1</Version>
     <Authors>Mehdi El Gueddari;Ivan Novikov</Authors>
     <PackageTags>DbContextScope;DbContext;EF;EFCore;EntityFramework;EntityFrameworkCore;UnitOfWork;AmbientDbContext;AmbientContext;RepositoryPattern</PackageTags>
     <Description>A library for managing the lifetime of Entity Framework Core DbContext instances. This package is based on the original DbContextScope repository by Mehdi El Gueddari, updated for .NET 6+ and EF Core, with a number of additional improvements and bug fixes.</Description>
@@ -24,9 +24,9 @@
     <None Include="LICENSE.txt" Pack="true" PackagePath="" />
     <None Include="..\README.md" Pack="true" PackagePath="\" />
     <None Include="..\icon.png" Pack="true" PackagePath="images\icon.png" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.12" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.12" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.1" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>

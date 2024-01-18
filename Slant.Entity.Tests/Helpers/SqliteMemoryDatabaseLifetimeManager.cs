@@ -8,7 +8,7 @@ namespace Slant.Entity.Tests.Helpers
     {
         public readonly string ConnectionString = $"DataSource={Guid.NewGuid()};mode=memory;cache=shared";
 
-        private DbConnection? _keepAliveConnection;
+        private DbConnection _keepAliveConnection;
 
         public SqliteMemoryDatabaseLifetimeManager()
         {

@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using Xunit;
-
+using ObjectIDGenerator = Slant.Entity.Tests.Helpers.ObjectIDGenerator;
 namespace Slant.Entity.Tests;
 
 public sealed class DbContextScopeTests : IDisposable
@@ -448,7 +448,7 @@ public sealed class DbContextScopeTests : IDisposable
 
                 lock (lockObject)
                 {
-                    var dbContextScopeId = idGenerator.GetId(dbContextScope, out bool _);
+                    var dbContextScopeId = idGenerator.GetId(dbContextScope);
                     dbContextScopeIds.Add(dbContextScopeId);
                 }
 
@@ -457,7 +457,7 @@ public sealed class DbContextScopeTests : IDisposable
 
                 lock (lockObject)
                 {
-                    var dbContextId = idGenerator.GetId(dbContext, out bool _);
+                    var dbContextId = idGenerator.GetId(dbContext);
                     dbContextIds.Add(dbContextId);
                 }
             });
