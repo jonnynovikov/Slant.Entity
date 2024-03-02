@@ -73,8 +73,8 @@ See also the unit tests for `RegisteredDbContextFactory` [here](./Slant.Entity.T
 
 ## Dependencies
 
-- .NET 6+
-- Entity Framework Core 7
+- .NET 8+
+- Entity Framework Core 8+
 
 ## Installation
 
